@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+<div class="addUser">
+    <h4 align="center">add user</h4>
+    <form action="/userInsert" method="GET">
+        <div style="text-align:center;">name:<input type="text" name="name"><br></div>
+        <div style="text-align:center;">dorm(optional):<input type="text" name="dormId"><br></div>
+        <div style="text-align:center;"><input type="submit" value="confirm"></div>
+    </form>
+</div>
+<p align="center" th:text="${message}" />
+<form action="/home" method="GET">
+    <div style="text-align:center;"><input type="submit" value="back to home"></div>
+</form>
+</body>
+</html>

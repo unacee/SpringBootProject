@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.demo.dao.DormDao">
+            <select id="findByDormId" parameterType="Integer" resultType="com.example.demo.entity.Dorm">
+                select * from Dorm where dormId = #{dormId}
+            </select>
+            <select id="findAllDorm" resultType="com.example.demo.entity.Dorm">
+                select * from Dorm
+            </select>
+            <select id="findAvailableDorm" resultType="com.example.demo.entity.Dorm">
+                select * from Dorm where vacant>0
+            </select>
+            <select id="findByLocation" resultType="com.example.demo.entity.Dorm">
+                select * from Dorm where location=#{location}
+            </select>
+            <insert id="insertDorm" parameterType="com.example.demo.entity.Dorm" useGeneratedKeys="true" keyProperty="dormId" keyColumn="dormId">
+                insert into Dorm(location,vacant) values(#{location},#{vacant})
+            </insert>
+            <delete id="deleteDorm" parameterType="Integer">
+                delete from Dorm where dormId=#{dormId}
+            </delete>
+            <update id="updateVacant" parameterType="Integer">
+                update Dorm set vacant=#{vacant} where dormId=#{dormId}
+            </update>
+        </mapper>

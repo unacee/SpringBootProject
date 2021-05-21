@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.demo.dao.UserDao">
+            <select id="findByUid" parameterType="Integer" resultType="com.example.demo.entity.User">
+                select * from User where uid = #{uid}
+            </select>
+            <select id="findAllUser" resultType="com.example.demo.entity.User">
+                select * from User
+            </select>
+            <select id="findUserByDormId" resultType="com.example.demo.entity.User">
+                select * from User where dormId = #{dormId}
+            </select>
+            <insert id="insertUser" parameterType="com.example.demo.entity.User" useGeneratedKeys="true" keyProperty="uid" keyColumn="uid">
+                insert into User(name,dormId) values(#{name},#{dormId})
+            </insert>
+            <delete id="deleteUser" parameterType="Integer">
+                delete from User where uid=#{uid}
+            </delete>
+        </mapper>
